@@ -2,7 +2,9 @@
 
 <%= link_to "Create New Event", new_event_path %>
 <p>
+  <ul>
 <% @events.each do |event| %>
-  <%= link_to event.name, event_path(event) %>
+  <li> <%= link_to event.name, event_path(event) %></li> 
 <% end %>
+</ul>
 </p>

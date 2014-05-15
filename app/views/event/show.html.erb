@@ -1,1 +1,100 @@
-<h1><%= @event.name %></h1>
+
+<div class="container">
+  <div class="container col-md-6">
+    <h1><%= @event.name %></h1>
+      <ul>
+        <li><%= link_to "Round 1: Written", new_scorecard_path(param1: 'Written', param2: @event.id) %></li>
+        <li><%= link_to "Round 2: A Capela", new_scorecard_path(param1: 'A Capela', param2: @event.id) %></li>
+        <li><%= link_to "Round 3: Grab Bag", new_scorecard_path(param1: 'Grab Bag', param2: @event.id) %></li>
+        <li><%= link_to "Round 4: Beat Juggling", new_scorecard_path(param1: 'Beat Juggling', param2: @event.id) %></li>
+        <li><%= link_to "Round 5: Cypha", new_scorecard_path(param1: 'Cypha', param2: @event.id) %></li>
+      </ul>
+  </div>
+
+
+  <div class="container col-md-6 pull-right">
+    <h1>Contestants</h1>
+      <ul>
+        <% @event.contestants.each do |c| %>
+        <li> <%= c.name %> </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-bordered">
+   <th></th>
+    <% @event.contestants.each do |c| %>
+      
+        <td> <%= c.name %> </td>
+      
+      
+    <% end %>
+      <tbody>
+        
+        <tr>
+          <td>Written</td>
+          <% @event.contestants.each do |c| %>
+            <% c.scorecards.each do |sc| %>
+              <% if sc.name == "Written" %>
+                <td><%= sc.total %></td>
+              <% end %>
+            <% end %>
+            <% end %>
+        </tr>
+        <tr>
+          <td>A Capela</td>
+          <% @event.contestants.each do |c| %>
+            <% c.scorecards.each do |sc| %>
+              <% if sc.name == "A Capela" %>
+                <td><%= sc.total %></td>
+              <% end %>
+            <% end %>
+            <% end %>
+        </tr>
+         <tr>
+          <td>Grab Bag</td>
+          <% @event.contestants.each do |c| %>
+             <% c.scorecards.each do |sc| %>
+              <% if sc.name == "Grab Bag" %>
+                <td><%= sc.total %></td>
+              <% end %>
+            <% end %>
+            <% end %>
+        </tr>
+         <tr>
+          <td>Beat Juggling</td>
+          <% @event.contestants.each do |c| %>
+             <% c.scorecards.each do |sc| %>
+              <% if sc.name == "Beat Juggling" %>
+                <td><%= sc.total %></td>
+              <% end %>
+            <% end %>
+            <% end %>
+        </tr>
+        <tr>
+          <td>Cypha</td>
+          <% @event.contestants.each do |c| %>
+            <% c.scorecards.each do |sc| %>
+              <% if sc.name == "Cypha" %>
+                <td><%= sc.total %></td>
+              <% end %>
+            <% end %>
+            <% end %>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <% @event.contestants.each do |c| %>
+              <% con_total  = 0%>
+              <% c.scorecards.each do |sc| %>
+                 <% con_total = con_total + sc.total %>
+            
+              <% end %>
+            <td><%= con_total %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    
+  </table>
+</div>

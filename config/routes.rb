@@ -1,8 +1,8 @@
 ScorecardTest::Application.routes.draw do
 
-
-  devise_for :users
   root "home#index"
+  devise_for :users  
   resources :event
   resources :contestant
+  resources :scorecard
 end

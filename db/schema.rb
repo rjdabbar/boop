@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505182054) do
+ActiveRecord::Schema.define(version: 20140514184222) do
 
   create_table "contestants", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   create_table "events", force: true do |t|
@@ -27,6 +28,25 @@ ActiveRecord::Schema.define(version: 20140505182054) do
     t.integer  "contestant_id"
     t.string   "name"
   end
+
+  create_table "scorecards", force: true do |t|
+    t.integer  "lyrics"
+    t.integer  "stage_presence"
+    t.integer  "creativity"
+    t.integer  "delivery_and_flow"
+    t.integer  "crowd_response"
+    t.integer  "user_id"
+    t.integer  "contestant_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "total"
+    t.string   "name"
+  end
+
+  add_index "scorecards", ["contestant_id"], name: "index_scorecards_on_contestant_id"
+  add_index "scorecards", ["event_id"], name: "index_scorecards_on_event_id"
+  add_index "scorecards", ["user_id"], name: "index_scorecards_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

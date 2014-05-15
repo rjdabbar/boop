@@ -5,14 +5,21 @@ class EventController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @scorecards = Scorecard.find_by_event_id(@event.id)
   end
 
   def create
     event_info = params[:event]
+    contestant_ids = event_info[:contestant_ids]
+    contestant_ids.pop
 
     event_date = Event.make_date_from(event_info.fetch("date(1i)"),event_info.fetch("date(2i)"),event_info.fetch("date(3i)"))
     @event = Event.create_from_form(event_info[:name], event_date)
+
+    Contestant.set_event_ids_from(contestant_ids, @event.id)
+
     @event.save
+    redirect_to controller: :event, action: :index
     
   end
 

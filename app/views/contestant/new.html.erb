@@ -1,2 +1,8 @@
-<h1>Contestant#new</h1>
-<p>Find me in app/views/contestant/new.html.erb</p>
+<h1>New Contestant</h1>
+
+
+<%= simple_form_for(@contestant, url: {action: :create, controller: :contestant}, method: :post) do |f| %>
+  <%= f.input :name  %>
+  <%= f.submit "Create" %>
+
+<% end %>
