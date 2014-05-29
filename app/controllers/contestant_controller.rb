@@ -3,13 +3,19 @@ class ContestantController < ApplicationController
   end
 
   def show
+    @contestant = Contestant.find(params[:id])
   end
 
   def index
     @contestants = Contestant.all
+    @events = Event.all
   end
 
   def edit
+    @contestant = Contestant.find(params[:id])
+    @contestant.save!
+  
+    redirect_to controller: :contestant, action: :index
   end
 
   def new

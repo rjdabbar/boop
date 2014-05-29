@@ -10,7 +10,7 @@ class EventController < ApplicationController
 
   def create
     event_info = params[:event]
-    contestant_ids = event_info[:contestant_ids]
+    contestant_ids = event_info[:contestant_id]
     contestant_ids.pop
 
     event_date = Event.make_date_from(event_info.fetch("date(1i)"),event_info.fetch("date(2i)"),event_info.fetch("date(3i)"))

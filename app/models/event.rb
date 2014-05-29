@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   has_many :users
-  has_many :contestants
+  # has_many :contestants
   has_many :scorecards
+  has_and_belongs_to_many :contestants
 
   validates :name, presence: true, uniqueness: true
   validates :date, presence: true
@@ -17,6 +18,12 @@ class Event < ActiveRecord::Base
       event.date = date
     end
   end
+
+  def self.set_contestants
+  
+
+  end
+
 
 
 end

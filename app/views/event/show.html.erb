@@ -18,6 +18,7 @@
         <% @event.contestants.each do |c| %>
         <li> <%= c.name %> </li>
         <% end %>
+        <%= link_to "Add Contestant", contestant_index_path %>
       </ul>
   </div>
 </div>

@@ -1,2 +1,15 @@
-<h1>Contestant#show</h1>
-<p>Find me in app/views/contestant/show.html.erb</p>
+<h1><%= @contestant.name %></h1>
+
+
+<div>
+  <% if  @contestant.events.empty? %>
+    Assign this contestant to an event.
+    <%= simple_form_for(@contestant, url: {action: :edit, controller: :contestant}, method: :get) do |f| %>
+      <%= f.association :events, as: :radio_buttons %>
+      <%= f.submit "Add" %>
+    <% end %>
+  <% else %>
+    <%= @contestant.events %>
+    <!-- Add this contestant to additional events. -->
+  <% end %>
+</div>
