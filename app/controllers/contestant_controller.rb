@@ -13,8 +13,9 @@ class ContestantController < ApplicationController
 
   def edit
     @contestant = Contestant.find(params[:id])
+    @contestant.add_event_to(@contestant, params[:contestant][:event_ids])
     @contestant.save!
-  
+
     redirect_to controller: :contestant, action: :index
   end
 

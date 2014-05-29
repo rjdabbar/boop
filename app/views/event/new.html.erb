@@ -4,7 +4,7 @@
 <%= simple_form_for(@event, url: {action: :create, controller: :event}, method: :post) do |f| %>
   <%= f.input :name  %>
   <%= f.input :date  %>
-  <%= f.association :contestant, as: :check_boxes %>
+  <%= f.association :contestants, as: :check_boxes %>
   <%= f.submit "Create" %>
 
 <% end %>
