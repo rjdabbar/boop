@@ -8,7 +8,7 @@
   <%= f.input :crowd_response, collection: 1..5  %>
 
   <%= f.input :event_id, as: :hidden, input_html: {value: params[:param2]} %>
-  <%= f.association :contestant, collection: Contestant.joins(:events).where("events.id", params[:param2]) %>
+  <%= f.association :contestant, collection: Contestant.all %>
 
   <%= f.submit "Create" %>
 

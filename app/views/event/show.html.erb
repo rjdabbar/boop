@@ -42,7 +42,7 @@
                 <td><%= sc.total %></td>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tr>
         <tr>
           <td>A Capela</td>
@@ -52,7 +52,7 @@
                 <td><%= sc.total %></td>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tr>
          <tr>
           <td>Grab Bag</td>
@@ -62,7 +62,7 @@
                 <td><%= sc.total %></td>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tr>
          <tr>
           <td>Beat Juggling</td>
@@ -72,7 +72,7 @@
                 <td><%= sc.total %></td>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tr>
         <tr>
           <td>Cypha</td>
@@ -82,7 +82,7 @@
                 <td><%= sc.total %></td>
               <% end %>
             <% end %>
-            <% end %>
+          <% end %>
         </tr>
         <tr>
           <td>Total</td>
@@ -90,7 +90,6 @@
               <% con_total  = 0%>
               <% c.scorecards.each do |sc| %>
                  <% con_total = con_total + sc.total %>
-            
               <% end %>
             <td><%= con_total %></td>
           <% end %>

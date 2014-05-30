@@ -3,15 +3,21 @@
 
 <div>
   <% if  @contestant.events.empty? %>
+  <p>
     Assign this contestant to an event.
     <%= simple_form_for(@contestant, url: {action: :edit, controller: :contestant}, method: :get) do |f| %>
       <%= f.association :events, as: :radio_buttons %>
       <%= f.submit "Add" %>
     <% end %>
-  <% else %>
+  </p>  
+  <% else %>Events:
     <% @contestant.events.each do |event| %>
-      <%= event.name %>
+      *<%= event.name %>*
     <% end %>
-    <!-- Add this contestant to additional events. -->
+    Add this contestant to additional events:
+        <%= simple_form_for(@contestant, url: {action: :edit, controller: :contestant}, method: :get) do |f| %>
+      <%= f.association :events, as: :radio_buttons %>
+      <%= f.submit "Add" %>
+    <% end %>
   <% end %>
 </div>
