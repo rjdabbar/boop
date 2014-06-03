@@ -13,13 +13,14 @@ class Event < ActiveRecord::Base
     date = Date.new(year.to_i, month.to_i, day.to_i)
   end
 
-  def self.create_from_form(name, date, contestants)
+  def self.create_from_form(name, date, contestants, user)
     Event.create! do |event|
       event.name = name
       event.date = date
       contestants.each do |con|
         event.contestants << Contestant.find(con)
       end
+        event.users << user
     end
     
   end
