@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
-  has_many :users
+  
   # has_many :contestants
   has_many :scorecards
   has_and_belongs_to_many :contestants
+  has_and_belongs_to_many :users
 
   validates :name, presence: true, uniqueness: true
   validates :date, presence: true
