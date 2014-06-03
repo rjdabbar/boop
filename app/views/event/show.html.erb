@@ -26,75 +26,26 @@
 <div class="container">
   <table class="table table-bordered">
    <th></th>
-    <% @event.contestants.each do |c| %>
-      
-        <td> <%= c.name %> </td>
-      
-      
-    <% end %>
-      <tbody>
-        
-        <tr>
-          <td>Written</td>
-          <% @event.contestants.each do |c| %>
-            <% c.scorecards.each do |sc| %>
-              <% if sc.name == "Written" %>
-                <td><%= sc.total %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-        <tr>
-          <td>A Capela</td>
-          <% @event.contestants.each do |c| %>
-            <% c.scorecards.each do |sc| %>
-              <% if sc.name == "A Capela" %>
-                <td><%= sc.total %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-         <tr>
-          <td>Grab Bag</td>
-          <% @event.contestants.each do |c| %>
-             <% c.scorecards.each do |sc| %>
-              <% if sc.name == "Grab Bag" %>
-                <td><%= sc.total %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-         <tr>
-          <td>Beat Juggling</td>
-          <% @event.contestants.each do |c| %>
-             <% c.scorecards.each do |sc| %>
-              <% if sc.name == "Beat Juggling" %>
-                <td><%= sc.total %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-        <tr>
-          <td>Cypha</td>
-          <% @event.contestants.each do |c| %>
-            <% c.scorecards.each do |sc| %>
-              <% if sc.name == "Cypha" %>
-                <td><%= sc.total %></td>
-              <% end %>
-            <% end %>
-          <% end %>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <% @event.contestants.each do |c| %>
-              <% con_total  = 0%>
-              <% c.scorecards.each do |sc| %>
-                 <% con_total = con_total + sc.total %>
-              <% end %>
-            <td><%= con_total %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    
+     <% @event.contestants.each do |c| %>
+       <td><%= c.name %></td>
+     <% end %>
+
+    <tbody>
+      <tr>
+        <td>Written</td>
+      </tr>
+      <tr>
+        <td>A Capela</td>
+      </tr>
+      <tr>
+        <td>Grab Bag</td>
+      </tr>
+      <tr>
+        <td>Beat Juggling</td>
+      </tr>
+      <tr>
+        <td>Cypha</td>
+      </tr>
+    </tbody>
   </table>
 </div>

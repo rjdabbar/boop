@@ -1,4 +1,5 @@
 class ScorecardController < ApplicationController
+  
   def index
   end
 
@@ -9,9 +10,11 @@ class ScorecardController < ApplicationController
   end
 
   def create
-
     scorecard = params[:scorecard]
-    @scorecard = Scorecard.create_from(scorecard)
+    @user = current_user
+    @scorecard = Scorecard.create_from(scorecard, @user)
+    
+    
     @scorecard.save
     redirect_to controller: :event, action: :show, id: params[:scorecard][:event_id]
   end

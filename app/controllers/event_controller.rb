@@ -4,6 +4,7 @@ class EventController < ApplicationController
   end
 
   def show
+    @user = current_user
     @event = Event.find(params[:id])
     @scorecards = Scorecard.find_by_event_id(@event.id)
   end
