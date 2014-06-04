@@ -15,31 +15,35 @@
             </td>
             <td>
               <%  if  con.find_sc_by_name_and_event(con.scorecards, "Written", @event).nil? %>
-              
+                <%= link_to "Score this round", new_scorecard_path(param1: 'Written', param2: @event.id, param3: con.id) %>
               <% else %>
               <%= con.find_sc_by_name_and_event(con.scorecards, "Written", @event).total %>
               <% end %>
             </td>
             <td>
               <%  if  con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event).nil? %>
+                <%= link_to "Score this round", new_scorecard_path(param1: 'A Capela', param2: @event.id,  param3: con.id) %>
               <% else %>
               <%= con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event).total %>
               <% end %>
             </td>
             <td>
               <%  if  con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event).nil? %>
+                <%= link_to "Score this round", new_scorecard_path(param1: 'Grab Bag', param2: @event.id,  param3: con.id) %>
               <% else %>
               <%= con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event).total %>
               <% end %>
             </td>
             <td>
               <%  if  con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event).nil? %>
+                <%= link_to "Score this round", new_scorecard_path(param1: 'Beat Juggling', param2: @event.id,  param3: con.id) %>
               <% else %>
               <%= con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event).total %>
               <% end %>
             </td>
             <td>
               <%  if  con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event).nil? %>
+                <%= link_to "Score this round", new_scorecard_path(param1: 'Cypha', param2: @event.id,  param3: con.id) %>
               <% else %>
               <%= con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event).total %>
               <% end %>

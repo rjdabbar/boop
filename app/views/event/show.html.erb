@@ -1,16 +1,16 @@
 
 <div class="container">
+<h1><%= @event.name %></h1>
   <div class="container col-md-4">
-    <h1><%= @event.name %></h1>
-      <ul>
-        <li><%= link_to "Round 1: Written", new_scorecard_path(param1: 'Written', param2: @event.id) %></li>
-        <li><%= link_to "Round 2: A Capela", new_scorecard_path(param1: 'A Capela', param2: @event.id) %></li>
-        <li><%= link_to "Round 3: Grab Bag", new_scorecard_path(param1: 'Grab Bag', param2: @event.id) %></li>
-        <li><%= link_to "Round 4: Beat Juggling", new_scorecard_path(param1: 'Beat Juggling', param2: @event.id) %></li>
-        <li><%= link_to "Round 5: Cypha", new_scorecard_path(param1: 'Cypha', param2: @event.id) %></li>
-      </ul>
+    <h1>Contestants</h1>
+      <ol>
+        <% @event.contestants.each do |c| %>
+        <li> <%= c.name %> </li>
+        <% end %>
+        <%= link_to "Add Contestant", contestant_index_path %>
+      </ol>
   </div>
-  
+
   <div class="container col-md-4 ">
     <h1>Judges</h1>
       <ul>
@@ -22,14 +22,16 @@
   </div>
 
   <div class="container col-md-4 pull-right">
-    <h1>Contestants</h1>
+    <h1>Rounds</h1>
       <ul>
-        <% @event.contestants.each do |c| %>
-        <li> <%= c.name %> </li>
-        <% end %>
-        <%= link_to "Add Contestant", contestant_index_path %>
+        <li>Round 1: Written</li>
+        <li>Round 2: A Capela</li>
+        <li>Round 3: Grab Bag</li>
+        <li>Round 4: Beat Juggling</li>
+        <li>Round 5: Cypha</li>
       </ul>
   </div>
+  
 </div>
 
 <div class="container">
