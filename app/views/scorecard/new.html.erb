@@ -1,4 +1,4 @@
-<h1>Written Scorecard</h1>
+<h1>New Scorecard</h1>
 <%= simple_form_for(@scorecard,  url: {action: :create, controller: :scorecard}, method: :post) do |f| %>
   <%= f.input :name, as: :hidden, input_html: {value: params[:param1]} %>
   <%= f.input :lyrics, collection: 1..5  %>

@@ -26,9 +26,7 @@ class Scorecard < ActiveRecord::Base
   end
 
 
-  def self.get_scorecards_for_event_from_user(event, user)
-    
-  end
+
   
 end
 

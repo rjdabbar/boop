@@ -1,0 +1,54 @@
+ <% if @event.users.include?(@user) %>
+      <tr>
+        <th>Name</th>
+        <th>Written</th>
+        <th>A Capela</th>
+        <th>Grab Bag</th>
+        <th>Beat Juggling</th>
+        <th>Cypha</th>
+        <th>Total</th>
+      </tr>
+      <% @event.contestants.each do |con| %>
+      <tr>
+            <td>
+              <%= con.name %>
+            </td>
+            <td>
+              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Written", @event).nil? %>
+              
+              <% else %>
+              <%= con.find_sc_by_name_and_event(con.scorecards, "Written", @event).total %>
+              <% end %>
+            </td>
+            <td>
+              <%  if  con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event).nil? %>
+              <% else %>
+              <%= con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event).total %>
+              <% end %>
+            </td>
+            <td>
+              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event).nil? %>
+              <% else %>
+              <%= con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event).total %>
+              <% end %>
+            </td>
+            <td>
+              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event).nil? %>
+              <% else %>
+              <%= con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event).total %>
+              <% end %>
+            </td>
+            <td>
+              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event).nil? %>
+              <% else %>
+              <%= con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event).total %>
+              <% end %>
+            </td>
+            <td>
+              <%= con.get_total_score_for_event(con.scorecards, @event) %>
+            </td>
+    <% end %>
+ <% end %>
+
+
+
