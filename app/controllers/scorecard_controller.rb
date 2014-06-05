@@ -24,5 +24,16 @@ class ScorecardController < ApplicationController
   end
 
   def edit
+    @scorecard = Scorecard.find params[:id]
+
+
   end
+
+  def update
+    @scorecard = Scorecard.find params[:id]
+    @scorecard.update_from(params[:scorecard], @scorecard)
+    redirect_to controller: :event, action: :show, id: params[:scorecard][:event_id]
+
+  end
+
 end

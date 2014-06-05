@@ -1,4 +1,5 @@
 <h1>New Scorecard</h1>
+<%= simple_form_for(@scorecard,  html: {class: 'form-inline'}, url: {action: :create, controller: :scorecard}, method: :post) do |f| %>
 <table class="table table-bordered">
   <tr>
     <th>Name</th>
@@ -10,20 +11,22 @@
   </tr>
   <tr>
     <td><%= Contestant.find(params[:param3]).name %></td>
-<%= simple_form_for(@scorecard,  html: {class: 'form-inline'}, url: {action: :create, controller: :scorecard}, method: :post) do |f| %>
-  <%= f.input :name, as: :hidden, input_html: {value: params[:param1]} %>
+
+
   <td><%= f.input :lyrics, collection: 1..5, label: false  %></td>
   <td><%= f.input :stage_presence, collection: 1..5, label: false  %></td>
   <td><%= f.input :creativity, collection: 1..5, label: false  %></td>
   <td><%= f.input :delivery_and_flow, collection: 1..5, label: false  %></td>
   <td><%= f.input :crowd_response, collection: 1..5, label: false  %></td>
 
+  <%= f.input :name, as: :hidden, input_html: {value: params[:param1]} %>
   <%= f.input :event_id, as: :hidden, input_html: {value: params[:param2]} %>
   <%= f.input :contestant_id, as: :hidden, input_html: {value: params[:param3]} %>
  
 </tr>
   <%= f.submit "Create" %>
 
-<% end %>
+
 
 </table>
+<% end %>
