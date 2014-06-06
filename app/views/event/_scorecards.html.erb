@@ -1,5 +1,6 @@
  <% if @event.users.include?(@user) %>
       <tr>
+        <th>Contestant Number</th>
         <th>Name</th>
         <th>Written</th>
         <th>A Capela</th>
@@ -8,8 +9,13 @@
         <th>Cypha</th>
         <th>Total</th>
       </tr>
+      <% counter = 1 %>
       <% @event.contestants.each do |con| %>
+
       <tr>
+            <td>
+              <%= counter %>
+            </td>
             <td>
               <%= con.name %>
             </td>
@@ -60,8 +66,10 @@
             </td>
             <td>
               <%= con.get_total_score_for_event(con.scorecards, @event) %>
-            </td>
+            </td> 
+             <% counter=counter+1 %>
     <% end %>
+
  <% end %>
 
 
