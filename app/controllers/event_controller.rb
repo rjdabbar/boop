@@ -35,4 +35,12 @@ class EventController < ApplicationController
 
   def edit
   end
+
+  def update
+    @user = current_user
+    @event = Event.find(params[:id])
+    User.add_event_to_user(@user, @event)
+    redirect_to controller: :event, action: :show
+  end
+
 end

@@ -1,4 +1,4 @@
- <% if @event.users.include?(@user) %>
+
       <tr>
         <th>Contestant Number</th>
         <th>Name</th>
@@ -20,57 +20,57 @@
               <%= con.name %>
             </td>
             <td>
-              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Written", @event).nil? %>
+              <%  if  con.find_sc_by_name_and_event_and_user(con.scorecards, "Written", @event, @user).nil? %>
                 <%= link_to "Score this round", new_scorecard_path(param1: 'Written', param2: @event.id, param3: con.id) %>
               <% else %>
-              <% sc = con.find_sc_by_name_and_event(con.scorecards, "Written", @event) %>
+              <% sc = con.find_sc_by_name_and_event_and_user(con.scorecards, "Written", @event, @user) %>
               <%= sc.total %>
               <%= link_to "Edit Score", edit_scorecard_path(sc.id) %>
               <% end %>
             </td>
             <td>
-              <%  if  con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event).nil? %>
+              <%  if  con.find_sc_by_name_and_event_and_user(con.scorecards, "A Capela", @event, @user).nil? %>
                 <%= link_to "Score this round", new_scorecard_path(param1: 'A Capela', param2: @event.id,  param3: con.id) %>
               <% else %>
-              <% sc = con.find_sc_by_name_and_event(con.scorecards, "A Capela", @event) %>
+              <% sc = con.find_sc_by_name_and_event_and_user(con.scorecards, "A Capela", @event, @user) %>
               <%= sc.total %>
               <%= link_to "Edit Score", edit_scorecard_path(sc.id) %>
               <% end %>
             </td>
             <td>
-              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event).nil? %>
+              <%  if  con.find_sc_by_name_and_event_and_user(con.scorecards, "Grab Bag", @event, @user).nil? %>
                 <%= link_to "Score this round", new_scorecard_path(param1: 'Grab Bag', param2: @event.id,  param3: con.id) %>
               <% else %>
-              <% sc = con.find_sc_by_name_and_event(con.scorecards, "Grab Bag", @event) %>
+              <% sc = con.find_sc_by_name_and_event_and_user(con.scorecards, "Grab Bag", @event, @user) %>
               <%= sc.total %>
               <%= link_to "Edit Score", edit_scorecard_path(sc.id) %>
               <% end %>
             </td>
             <td>
-              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event).nil? %>
+              <%  if  con.find_sc_by_name_and_event_and_user(con.scorecards, "Beat Juggling", @event, @user).nil? %>
                 <%= link_to "Score this round", new_scorecard_path(param1: 'Beat Juggling', param2: @event.id,  param3: con.id) %>
               <% else %>
-              <% sc = con.find_sc_by_name_and_event(con.scorecards, "Beat Juggling", @event) %>
+              <% sc = con.find_sc_by_name_and_event_and_user(con.scorecards, "Beat Juggling", @event, @user) %>
               <%= sc.total %>
               <%= link_to "Edit Score", edit_scorecard_path(sc.id) %>
               <% end %>
             </td>
             <td>
-              <%  if  con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event).nil? %>
+              <%  if  con.find_sc_by_name_and_event_and_user(con.scorecards, "Cypha", @event, @user).nil? %>
                 <%= link_to "Score this round", new_scorecard_path(param1: 'Cypha', param2: @event.id,  param3: con.id) %>
               <% else %>
-              <% sc = con.find_sc_by_name_and_event(con.scorecards, "Cypha", @event) %>
+              <% sc = con.find_sc_by_name_and_event_and_user(con.scorecards, "Cypha", @event, @user) %>
               <%= sc.total %>
               <%= link_to "Edit Score", edit_scorecard_path(sc.id) %>
               <% end %>
             </td>
             <td>
-              <%= con.get_total_score_for_event(con.scorecards, @event) %>
+              <%= con.get_total_score_for_event(con.scorecards, @event, @user) %>
             </td> 
              <% counter=counter+1 %>
     <% end %>
 
- <% end %>
+
 
 
 

@@ -25,4 +25,9 @@ class Event < ActiveRecord::Base
     
   end
 
+  def self.add_user_to_event(user, event)
+    event.users << user
+  end
+
+
 end

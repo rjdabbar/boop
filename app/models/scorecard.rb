@@ -3,7 +3,7 @@ class Scorecard < ActiveRecord::Base
   belongs_to :contestant
   belongs_to :event
 
-  validates_uniqueness_of :name, scope: [:event_id, :contestant_id]
+  validates_uniqueness_of :name, scope: [:event_id, :contestant_id, :user_id]
   validates_presence_of :lyrics, :stage_presence, :creativity, :delivery_and_flow, :crowd_response, :event_id, :contestant_id
 
   def self.create_from(hash, user)

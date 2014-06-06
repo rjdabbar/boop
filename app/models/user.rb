@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :events
   has_many :scorecards
+
+
+
+
+  def self.add_event_to_user(user, event)
+    user.events << event
+  end
+
 end

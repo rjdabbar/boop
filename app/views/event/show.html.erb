@@ -15,7 +15,7 @@
     <h1>Judges</h1>
       <ul>
         <% @users.each do |u| %>
-        <li> <%= u.email %> </li>
+        <li> <%= u.name %> </li>
         <% end %>
         
       </ul>
@@ -36,6 +36,35 @@
 
 <div class="container">
   <table class="table table-bordered">
-   <%= render 'scorecards' %>
+     <% if !@event.users.include?(@user) %>
+         <%= simple_form_for(@event, url: {controller: :event, action: :update}, mehtod: :put) do |f| %>
+        <%= f.submit "Judge Event" %>
+        <% end %>
+        <% else %>
+        <%= render 'scorecards' %>
+
+        <% end %>
+
+
+       
+     
   </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

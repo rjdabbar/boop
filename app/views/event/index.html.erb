@@ -4,7 +4,7 @@
 <p>
   <ul>
 <% @events.each do |event| %>
-  <li> <%= link_to event.name, event_path(event) %></li> 
+  <li> <%= link_to event.name, event_path(event) %> ||  <%= link_to "Score this Event", scorecard_path(event.id) %></li> 
 <% end %>
 </ul>
 </p>

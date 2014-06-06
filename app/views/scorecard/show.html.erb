@@ -1,2 +1,53 @@
-<h1>Scorecard#show</h1>
-<p>Find me in app/views/scorecard/show.html.erb</p>
+<table class="table table-bordered">
+  <tr>
+    <th></th>
+      <% @event.contestants.each do |con| %>
+        <th><%= con.name %></th>
+      <% end %>
+    
+  </tr>
+  <% @event.users.each do |j| %>
+    <tr>
+      <td><%= j.name %></td>
+      
+      <% @event.contestants.each do |con| %>
+        <td><%= con.score_event(con.scorecards, @event, j)  %></td>
+      <% end %>
+
+    </tr>
+  <% end %>
+  <tr>
+    <th>Total</th>
+    <% @event.contestants.each do |con| %>
+        
+        <td><%= con.total_score(con.scorecards, @event, @event.users) %></td>
+      
+    <% end %>
+
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
