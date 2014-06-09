@@ -18,18 +18,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" >
       <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-          Signed in as: <%= current_user.email %>
-       <% else %>
-       <a> <%= link_to "Sign Up", new_user_registration_path %></a>
-       <a> <%= link_to "Sign In", new_user_session_path %></a>
-       <% end %>
        <li><%= link_to "Events", event_index_path %></li>
        <li><%= link_to "Contestants", contestant_index_path %></li>
       </ul>
       
-      <ul class="nav navbar-nav navbar-right">
-        <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+      <ul class="nav navbar-nav navbar-right"> 
+        <% if user_signed_in? %>
+          <li>Signed in as: <%= current_user.name %></li>
+         <% else %>
+           <li><%= link_to "Sign Up", new_user_registration_path %></li>
+           <li><%= link_to "Sign In", new_user_session_path %></li>
+       <% end %>
+       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li> 
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
