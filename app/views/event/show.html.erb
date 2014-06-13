@@ -1,38 +1,41 @@
 
 <div class="container" id="contestants_list">
-<h1><%= @event.name %></h1>
-  <div class="container col-md-4">
-    <h1>Contestants</h1>
-      <ol>
-        <% @event.contestants.each do |c| %>
-        <li> <%= c.name %> </li>
-        <% end %>
-        <%= link_to "Add Contestant", contestant_index_path %>
-      </ol>
-  </div>
-
-  <div class="container col-md-4 ">
-    <h1>Judges</h1>
-      <ul>
-        <% @users.each do |u| %>
-        <li> <%= u.name %> </li>
-        <% end %>
-        
-      </ul>
-  </div>
-
-  <div class="container col-md-4">
-    <h1>Rounds</h1>
-      <ul>
-        <li>Round 1: Written</li>
-        <li>Round 2: A Capela</li>
-        <li>Round 3: Grab Bag</li>
-        <li>Round 4: Beat Juggling</li>
-        <li>Round 5: Cypha</li>
-      </ul>
-  </div>
   
+  <h1><%= @event.name %></h1>
+  <% if current_user.admin? %>
+    <div class="container col-md-4">
+      <h1>Contestants</h1>
+        <ol>
+          <% @event.contestants.each do |c| %>
+          <li> <%= c.name %> </li>
+          <% end %>
+          <%= link_to "Add Contestant", contestant_index_path %>
+        </ol>
+    </div>
+
+    <div class="container col-md-4 ">
+      <h1>Judges</h1>
+        <ul>
+          <% @users.each do |u| %>
+          <li> <%= u.name %> </li>
+          <% end %>
+          
+        </ul>
+    </div>
+
+    <div class="container col-md-4">
+      <h1>Rounds</h1>
+        <ul>
+          <li>Round 1: Written</li>
+          <li>Round 2: A Capela</li>
+          <li>Round 3: Grab Bag</li>
+          <li>Round 4: Beat Juggling</li>
+          <li>Round 5: Cypha</li>
+        </ul>
+    </div>
+  <% end %> <!-- checks if user an admin -->
 </div>
+
 
 <div class="container">
   <table class="table table-bordered table-striped table-hover table-responsive" id="scorecard_table">
