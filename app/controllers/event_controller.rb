@@ -31,6 +31,11 @@ class EventController < ApplicationController
   end
 
   def destroy
+   if @event = Event.find(params[:id])
+     @event.destroy
+     redirect_to controller: :event, action: :index
+   end
+
   end
 
   def new
@@ -39,6 +44,11 @@ class EventController < ApplicationController
 
   def edit
   end
+
+  def remove
+
+  end
+  
 
   def update
     @user = current_user

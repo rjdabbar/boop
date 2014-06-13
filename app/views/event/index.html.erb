@@ -5,7 +5,14 @@
   <ul id="full_event_list">
 <% @events.each do |event| %>
 <li id="event_name"><b> <%= event.name %></b> <span class="event_date_span"><%= event.display_date(event.date) %></span> </br>
-  <%= link_to "Score this Event", event_path(event) %> ||  <%= link_to "Total Scores", scorecard_path(event.id) %></li>
+  <%= link_to "Score this Event", event_path(event) %> ||  <%= link_to "Total Scores", scorecard_path(event.id) %>
+  
+  <% if current_user.admin? %>
+    <%= button_to "Delete Event", event_path(event.id), method: :delete, confirm: "Are you sure you want to delete #{event.name}?"   %> 
+  <% end %>
+
+
+</li>
 <% end %>
 </ul>
 </p>

@@ -1,0 +1,8 @@
+<h1>Judges</h1>
+
+<ul>
+<% @users.each do |j| %>
+  <li><%= j.name %> ||  <%= button_to "Delete Judge", user_path(j.id), method: :delete, confirm: "Are you sure you want to delete #{j.name}? This will remove all scorecards created by this judge."   %>  </li>  
+<% end %>
+
+</ul>

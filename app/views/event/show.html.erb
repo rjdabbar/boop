@@ -17,7 +17,7 @@
       <h1>Judges</h1>
         <ul>
           <% @users.each do |u| %>
-          <li> <%= u.name %> </li>
+          <li> <%= u.name %> <%= button_to "Remove this Judge", user_path(user_id:  u.id, event_id: @event.id ),  method: :put, confirm: "This will remove the judge from the event and delete all scorecards associated"  %></li>
           <% end %>
           
         </ul>

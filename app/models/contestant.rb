@@ -21,7 +21,7 @@ has_and_belongs_to_many :events
     scorecards.detect{ |sc| sc.name == name && sc.event.id == event.id}
   end
 
-    def find_sc_by_name_and_event_and_user(scorecards, name, event, user)
+  def find_sc_by_name_and_event_and_user(scorecards, name, event, user)
     scorecards.detect{ |sc| sc.name == name && sc.event.id == event.id && sc.user.id == user.id}
   end
 

@@ -33,6 +33,10 @@ class ContestantController < ApplicationController
 
 
   def destroy
+    if @contestant = Contestant.find(params[:id])
+     @contestant.destroy
+     redirect_to controller: :contestant, action: :index
+   end
   end
 
 
