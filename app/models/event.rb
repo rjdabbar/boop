@@ -29,5 +29,10 @@ class Event < ActiveRecord::Base
     event.users << user
   end
 
+  def display_date(date)
+    date.to_s[5..-1] + "-" + date.to_s[0..3]
+  end
+
+
 
 end

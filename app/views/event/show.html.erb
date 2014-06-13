@@ -21,7 +21,7 @@
       </ul>
   </div>
 
-  <div class="container col-md-4 pull-right">
+  <div class="container col-md-4">
     <h1>Rounds</h1>
       <ul>
         <li>Round 1: Written</li>
@@ -35,7 +35,7 @@
 </div>
 
 <div class="container">
-  <table class="table table-bordered table-striped table-hover" id="scorecard_table">
+  <table class="table table-bordered table-striped table-hover table-responsive" id="scorecard_table">
      <% if !@event.users.include?(@user) %>
          <%= simple_form_for(@event, url: {controller: :event, action: :update}, mehtod: :put) do |f| %>
         <%= f.submit "Judge Event" %>
