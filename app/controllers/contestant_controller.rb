@@ -1,5 +1,7 @@
 class ContestantController < ApplicationController
   before_filter :authenticate_user!
+  before_action :check_admin?
+
   def new
   end
 
@@ -31,5 +33,17 @@ class ContestantController < ApplicationController
 
 
   def destroy
+  end
+
+
+  private
+
+  def check_admin?
+    if current_user.admin?
+      true
+    else
+      redirect_to controller: :event, action: :index
+    end
+
   end
 end
