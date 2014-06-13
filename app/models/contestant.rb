@@ -1,5 +1,6 @@
 class Contestant < ActiveRecord::Base
 
+validates :name, presence: true, uniqueness: true
 # belongs_to :event
 has_many :scorecards
 has_and_belongs_to_many :events
