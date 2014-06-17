@@ -9,5 +9,69 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery-tablesorter/theme.blue
  *= require_tree .
  */
+
+
+
+.radio-btn {
+  /*padding-right: 10px;*/
+  margin: 0px;
+  width: 35px;
+  height: 23px;
+  background-color:#EFEFEF;
+  border-radius:4px;
+  border: 1px solid #D0D0D0;
+  overflow:auto;
+
+
+  background: transparent;
+
+}
+
+.radio-btns, .sc-th {
+  text-align: center;
+}
+
+.selected {
+    background-color:#404040;
+    color:#F7F7F7;
+}
+
+
+
+input[type="radio"] {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

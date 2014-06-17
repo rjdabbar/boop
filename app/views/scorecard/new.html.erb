@@ -1,32 +1,33 @@
-<h1>New Scorecard</h1>
+<h1><%= params[:param1] %> Round</h1>
 <%= simple_form_for(@scorecard,  html: {class: 'form-inline'}, url: {action: :create, controller: :scorecard}, method: :post) do |f| %>
 <table class="table table-bordered">
   <tr>
     <th>Name</th>
-    <th>Lyrics</th>
-    <th>Stage Presence</th>
-    <th>Creativity</th>
-    <th>Delivery and Flow</th>
-    <th>Crowd Response</th>
+    <th class="sc-th">Lyrics</th>
+    <th class="sc-th">Stage Presence</th>
+    <th class="sc-th">Creativity</th>
+    <th class="sc-th">Delivery and Flow</th>
+    <th class="sc-th">Crowd Response</th>
   </tr>
   <tr>
     <td><%= Contestant.find(params[:param3]).name %></td>
 
 
-  <td><%= f.input :lyrics, collection: 1..5, label: false  %></td>
-  <td><%= f.input :stage_presence, collection: 1..5, label: false  %></td>
-  <td><%= f.input :creativity, collection: 1..5, label: false  %></td>
-  <td><%= f.input :delivery_and_flow, collection: 1..5, label: false  %></td>
-  <td><%= f.input :crowd_response, collection: 1..5, label: false  %></td>
+  <td class="radio-btns"><%= f.input :lyrics, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %></td>
+  <td class="radio-btns"><%= f.input :stage_presence, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :creativity, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :delivery_and_flow, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :crowd_response, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
 
   <%= f.input :name, as: :hidden, input_html: {value: params[:param1]} %>
   <%= f.input :event_id, as: :hidden, input_html: {value: params[:param2]} %>
   <%= f.input :contestant_id, as: :hidden, input_html: {value: params[:param3]} %>
  
 </tr>
-  <%= f.submit "Create" %>
+  
 
 
 
 </table>
+<%= f.submit "Create" %>
 <% end %>

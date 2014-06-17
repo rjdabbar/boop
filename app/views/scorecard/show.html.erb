@@ -1,4 +1,5 @@
-<table class="table table-bordered table-hover table-striped" id="event_scorecard">
+<table class="table table-bordered table-hover table-striped tablesorter tablesorter-blue" id="event_scorecard">
+  <thead>
   <tr>
     <th></th>
       <% @event.contestants.each do |con| %>
@@ -6,6 +7,8 @@
       <% end %>
     
   </tr>
+  </thead>
+  <tbody>
   <% @event.users.each do |j| %>
     <tr>
       <td><%= j.name %></td>
@@ -25,6 +28,7 @@
     <% end %>
 
   </tr>
+  </tbody>
 </table>
 
 

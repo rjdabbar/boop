@@ -14,4 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jquery-tablesorter
 //= require_tree .
+
+
+$(document).ready(function(){
+
+  $('.radio-btn').click(function(){
+    $(this).siblings().each(function(btn) {
+      if ($(this).hasClass("selected")){
+        $(this).removeClass("selected");
+      };
+    });
+    $(this).addClass("selected");
+  });
+
+});
