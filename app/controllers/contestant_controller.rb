@@ -16,6 +16,7 @@ class ContestantController < ApplicationController
 
   def edit
     @contestant = Contestant.find(params[:id])
+      params[:contestant][:event_ids].pop
     @contestant.add_event_to(@contestant, params[:contestant][:event_ids])
     @contestant.save!
 

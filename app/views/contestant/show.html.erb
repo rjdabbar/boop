@@ -22,7 +22,7 @@
     
     Add this contestant to additional events:
         <%= simple_form_for(@contestant, url: {action: :edit, controller: :contestant}, method: :get) do |f| %>
-      <%= f.association :events, as: :radio_buttons %>
+      <%= f.association :events, as: :check_boxes %>
       <%= f.submit "Add" %>
     <% end %>
   <% end %>
