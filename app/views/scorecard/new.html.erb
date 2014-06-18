@@ -1,33 +1,35 @@
 <h1><%= params[:param1] %> Round</h1>
+<h3><%= Contestant.find(params[:param3]).name %></h3>
 <%= simple_form_for(@scorecard,  html: {class: 'form-inline'}, url: {action: :create, controller: :scorecard}, method: :post) do |f| %>
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th class="sc-th">Lyrics</th>
-    <th class="sc-th">Stage Presence</th>
-    <th class="sc-th">Creativity</th>
-    <th class="sc-th">Delivery and Flow</th>
-    <th class="sc-th">Crowd Response</th>
-  </tr>
-  <tr>
-    <td><%= Contestant.find(params[:param3]).name %></td>
 
 
-  <td class="radio-btns"><%= f.input :lyrics, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %></td>
-  <td class="radio-btns"><%= f.input :stage_presence, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
-  <td class="radio-btns"><%= f.input :creativity, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
-  <td class="radio-btns"><%= f.input :delivery_and_flow, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
-  <td class="radio-btns"><%= f.input :crowd_response, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+
 
   <%= f.input :name, as: :hidden, input_html: {value: params[:param1]} %>
   <%= f.input :event_id, as: :hidden, input_html: {value: params[:param2]} %>
   <%= f.input :contestant_id, as: :hidden, input_html: {value: params[:param3]} %>
  
-</tr>
-  
+<ul class="radio-btns">
+  <li >Lyrics</br>
+  <%= f.input :lyrics, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %>
+  </li>
 
+    <li>Stage Presence</br>
+  <%= f.input :stage_presence, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %>
+  </li>
 
+    <li>Creativity</br>
+  <%= f.input :creativity, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %>
+  </li>
 
-</table>
+    <li>Delivery and Flow</br>
+  <%= f.input :delivery_and_flow, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %>
+  </li>
+
+    <li>Crowd Response</br>
+  <%= f.input :crowd_response, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %>
+  </li>
+
+</ul>
 <%= f.submit "Create" %>
 <% end %>

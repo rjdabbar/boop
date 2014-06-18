@@ -75,6 +75,9 @@ GEM
       multi_json (~> 1.8)
     hike (1.2.3)
     http_parser.rb (0.5.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -84,6 +87,13 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-tablesorter (1.12.1)
       railties (>= 3.1, < 5)
+    jquery-ui-form (0.2.8)
+      jquery-ui-form
+      rails (>= 3.1.0)
+    jquery-ui-rails (4.2.1)
+      railties (>= 3.2.16)
+    jquery-ui-themes (0.0.11)
+      httparty
     json (1.8.1)
     listen (2.7.1)
       celluloid (>= 0.15.2)
@@ -98,6 +108,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.3)
+    multi_xml (0.5.5)
     nio4r (1.0.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
@@ -185,6 +196,9 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-tablesorter
+  jquery-ui-form
+  jquery-ui-rails
+  jquery-ui-themes
   pg
   rails (= 4.0.2)
   rails_12factor

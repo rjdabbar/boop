@@ -16,22 +16,22 @@
 
 
 .radio-btn {
-  /*padding-right: 10px;*/
+
   margin: 0px;
   width: 35px;
-  height: 23px;
   background-color:#EFEFEF;
   border-radius:4px;
   border: 1px solid #D0D0D0;
   overflow:auto;
-
-
+  display: inline;
+  text-align: center;
   background: transparent;
 
 }
 
-.radio-btns, .sc-th {
-  text-align: center;
+.radio-btns {
+  list-style: none;
+  padding: 0px;
 }
 
 .selected {

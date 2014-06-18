@@ -1,32 +1,34 @@
-<h1>Edit Scorecard</h1>
+<h1>Edit: <%= @scorecard.name %> Round</h1>
 <%= simple_form_for(@scorecard,  html: {class: 'form-inline'}, url: {action: :update, controller: :scorecard}, method: :put) do |f| %>
 <table class="table table-bordered">
   <tr>
     <th>Name</th>
-    <th>Lyrics</th>
-    <th>Stage Presence</th>
-    <th>Creativity</th>
-    <th>Delivery and Flow</th>
-    <th>Crowd Response</th>
+    <th class="sc-th">Lyrics</th>
+    <th class="sc-th">Stage Presence</th>
+    <th class="sc-th">Creativity</th>
+    <th class="sc-th">Delivery and Flow</th>
+    <th class="sc-th">Crowd Response</th>
   </tr>
   <tr>
     <td><%= @scorecard.contestant.name %></td>
 
-  
-  <td><%= f.input :lyrics, collection: 1..5, label: false  %></td>
-  <td><%= f.input :stage_presence, collection: 1..5, label: false  %></td>
-  <td><%= f.input :creativity, collection: 1..5, label: false  %></td>
-  <td><%= f.input :delivery_and_flow, collection: 1..5, label: false  %></td>
-  <td><%= f.input :crowd_response, collection: 1..5, label: false  %></td>
+
+  <td class="radio-btns"><%= f.input :lyrics, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn", data_type: "horizontal"  %></td>
+  <td class="radio-btns"><%= f.input :stage_presence, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :creativity, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :delivery_and_flow, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
+  <td class="radio-btns"><%= f.input :crowd_response, collection: 1..5, as: :radio_buttons, label: false, item_wrapper_class: "radio-btn"  %></td>
 
   <%= f.input :event_id, as: :hidden, input_html: {value: @scorecard.event.id} %>
   <%= f.input :contestant_id, as: :hidden, input_html: {value: @scorecard.contestant.id} %>
   <%= f.input :name, as: :hidden, input_html: {value: @scorecard.name} %>
-
-  </tr>
-  <%= f.submit "Edit" %>
+ 
+</tr>
+  
 
 
 
 </table>
+<%= f.submit "Edit" %>
 <% end %>
+

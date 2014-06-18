@@ -29,4 +29,6 @@ $(document).ready(function(){
     $(this).addClass("selected");
   });
 
+
+  $('table').tablesorter();
 });

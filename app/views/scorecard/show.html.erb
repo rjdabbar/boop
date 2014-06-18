@@ -1,35 +1,33 @@
+
 <table class="table table-bordered table-hover table-striped tablesorter tablesorter-blue" id="event_scorecard">
   <thead>
   <tr>
     <th></th>
-      <% @event.contestants.each do |con| %>
-        <th><%= con.name %></th>
-      <% end %>
+    <% @event.users.each do |j| %>
+      <th><%= j.name %></th>
+    <% end %>
     
+    <th>Total</th>
   </tr>
   </thead>
   <tbody>
-  <% @event.users.each do |j| %>
+  <% @event.contestants.each do |con| %>
     <tr>
-      <td><%= j.name %></td>
-      
-      <% @event.contestants.each do |con| %>
-        <td><%= con.score_event(con.scorecards, @event, j)  %></td>
+      <td><%= con.name %></td>
+      <% @event.users.each do |j| %>
+      <td><%= con.score_event(con.scorecards, @event, j)  %></td>
       <% end %>
-
+      
+      <td><%= con.total_score(con.scorecards, @event, @event.users) %></td>
     </tr>
   <% end %>
   <tr>
-    <th>Total</th>
-    <% @event.contestants.each do |con| %>
-        
-        <td><%= con.total_score(con.scorecards, @event, @event.users) %></td>
-      
-    <% end %>
+    
 
   </tr>
   </tbody>
 </table>
+
 
 
 

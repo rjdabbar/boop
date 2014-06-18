@@ -46,15 +46,10 @@ group :doc do
 end
 
 gem 'jquery-tablesorter'
+gem 'jquery-ui-form'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+group :assets do
+  gem 'jquery-ui-rails'
+  gem 'jquery-ui-themes'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
